@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <style>
+        /* Colores pastel */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3e8ff;
+            color: #4a4a4a;
+        }
+        h1 {
+            color: #7d6b91;
+        }
+        h2 {
+            color: #82617d;
+        }
+        a {
+            color: #82617d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #4a4a4a;
+        }
+        header {
+            background-color: #c7a3d6;
+            padding: 1em 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        /* Animación de bienvenida */
+        .welcome-text {
+            font-size: 2em;
+            text-align: center;
+            animation: fadeIn 3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Menú interactivo */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            background-color: #d1c4e9;
+            border-radius: 8px;
+            padding: 10px 0;
+        }
+        nav ul li {
+            font-size: 1.2em;
+        }
+        nav ul li a {
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #b39ddb;
+            border-radius: 5px;
+        }
+        /* Secciones */
+        .section {
+            margin: 30px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #f0e4f7;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        /* Efecto en secciones */
+        .section:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #d1c4e9;
+            color: #4a4a4a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado con animación -->
+    <header>
+        <h1 class="welcome-text">¡Bienvenido a Mi Página!</h1>
+        <p>Explora lo que tengo para ofrecer</p>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="section">
+            <h2>Inicio</h2>
+            <p>Aquí puedes escribir una breve introducción o algún mensaje llamativo sobre tu página web.</p>
+        </section>
+
+        <!-- Sección Sobre Mí -->
+        <section id="sobre-mi" class="section">
+            <h2>Sobre Mí</h2>
+            <p>[Aquí va información sobre ti, tus intereses, tu experiencia o cualquier otro dato relevante.]</p>
+        </section>
+
+        <!-- Sección Proyectos -->
+        <section id="proyectos" class="section">
+            <h2>Proyectos</h2>
+            <p>[Aquí puedes agregar una breve descripción de algunos proyectos destacados, o un portafolio.]</p>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="section">
+            <h2>Contacto</h2>
+            <p>[Aquí puedes poner un formulario de contacto o tus datos de redes sociales.]</p>
+        </section>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 Mi Página Web. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
