@@ -3,48 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Un Amor a Distancia</title>
     <style>
-        /* Colores pastel */
+        /* Estilos de página y colores pastel */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f3e8ff;
             color: #4a4a4a;
+            overflow-x: hidden;
         }
-        h1 {
+        h1, h2 {
             color: #7d6b91;
+            margin: 0;
         }
-        h2 {
+        h3 {
             color: #82617d;
         }
         a {
-            color: #82617d;
+            color: #7d6b91;
             text-decoration: none;
             transition: color 0.3s;
         }
         a:hover {
             color: #4a4a4a;
         }
-        header {
-            background-color: #c7a3d6;
-            padding: 1em 0;
-            text-align: center;
+
+        /* Efecto de escritura en el título */
+        .typing {
+            font-size: 2.5em;
+            color: #7d6b91;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #7d6b91;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
         }
-        .container {
-            padding: 20px;
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
-        /* Animación de bienvenida */
-        .welcome-text {
-            font-size: 2em;
-            text-align: center;
-            animation: fadeIn 3s ease;
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        /* Animación de rebote */
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Frases motivadoras con efecto de escritura secuencial */
+        .frase {
+            font-size: 1.2em;
+            color: #4a4a4a;
+            animation: fadeIn 2s forwards;
+            opacity: 0;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
         /* Menú interactivo */
         nav ul {
             list-style: none;
@@ -55,6 +78,7 @@
             background-color: #d1c4e9;
             border-radius: 8px;
             padding: 10px 0;
+            margin-top: 20px;
         }
         nav ul li {
             font-size: 1.2em;
@@ -67,77 +91,104 @@
             background-color: #b39ddb;
             border-radius: 5px;
         }
-        /* Secciones */
-        .section {
-            margin: 30px auto;
-            max-width: 800px;
-            padding: 20px;
+
+        /* Separador animado */
+        .separador {
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #b39ddb, #f3e8ff, #7d6b91);
+            animation: move 5s linear infinite;
+        }
+        @keyframes move {
+            from { background-position: 0; }
+            to { background-position: 100%; }
+        }
+
+        /* Mensaje de bienvenida estilo póster */
+        .poster {
             background-color: #f0e4f7;
+            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        /* Efecto en secciones */
-        .section:hover {
-            transform: scale(1.02);
-            transition: transform 0.3s;
-        }
-        footer {
+            margin: 30px auto;
+            max-width: 700px;
             text-align: center;
-            padding: 10px;
-            background-color: #d1c4e9;
-            color: #4a4a4a;
+        }
+
+        /* Animación de perrito */
+        .dog-animation {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://example.com/dog.gif'); /* URL de la animación del perrito */
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 1000;
         }
     </style>
 </head>
 <body>
 
-    <!-- Encabezado con animación -->
-    <header>
-        <h1 class="welcome-text">¡Bienvenido a Mi Página!</h1>
-        <p>Explora lo que tengo para ofrecer</p>
-    </header>
+    <!-- Título principal con animación de escritura -->
+    <div class="container">
+        <h1 class="typing">Un Amor a Distancia</h1>
+        <div>
+            <!-- Frases motivadoras con animación de rebote -->
+            <p class="frase bounce">Que nunca se acaba.</p>
+            <p class="frase bounce">Que está siempre presente.</p>
+            <p class="frase bounce">Que te hace más fuerte.</p>
+            <p class="frase bounce">Que supera cualquier barrera.</p>
+            <p class="frase bounce">Que sabe esperar.</p>
+            <p class="frase bounce">Que no se rinde.</p>
+            <p class="frase bounce">Que es verdadero.</p>
+            <p class="frase bounce">Que trasciende el tiempo.</p>
+            <p class="frase bounce">Que vale cada segundo.</p>
+            <p class="frase bounce">Que es posible.</p>
+        </div>
+    </div>
 
     <!-- Menú de navegación -->
     <nav>
         <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre Mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#subpagina1">Subpágina 1</a></li>
+            <li><a href="#entradas">Entradas</a></li>
+            <li><a href="#bienvenida">Bienvenida</a></li>
+            <!-- Ejemplo oculto para futuras páginas -->
+            <li style="display: none;"><a href="#futura-pagina">Futura Página</a></li>
         </ul>
     </nav>
 
-    <!-- Contenido principal -->
-    <div class="container">
-        <!-- Sección Inicio -->
-        <section id="inicio" class="section">
-            <h2>Inicio</h2>
-            <p>Aquí puedes escribir una breve introducción o algún mensaje llamativo sobre tu página web.</p>
-        </section>
+    <!-- Separador animado -->
+    <div class="separador"></div>
 
-        <!-- Sección Sobre Mí -->
-        <section id="sobre-mi" class="section">
-            <h2>Sobre Mí</h2>
-            <p>[Aquí va información sobre ti, tus intereses, tu experiencia o cualquier otro dato relevante.]</p>
-        </section>
+    <!-- Mensaje de bienvenida tipo póster -->
+    <section id="bienvenida" class="poster">
+        <h2>¡Bienvenido!</h2>
+        <p>Esta es una página especial dedicada a todos aquellos que creen que el amor no tiene fronteras.</p>
+        <p>Añade aquí tu mensaje de bienvenida o alguna descripción emotiva.</p>
+        <img src="https://example.com/monster-high.jpg" alt="Monster High" width="100">
+        <img src="https://example.com/hello-kitty.jpg" alt="Hello Kitty" width="100">
+        <img src="https://example.com/bratz.jpg" alt="Bratz" width="100">
+    </section>
 
-        <!-- Sección Proyectos -->
-        <section id="proyectos" class="section">
-            <h2>Proyectos</h2>
-            <p>[Aquí puedes agregar una breve descripción de algunos proyectos destacados, o un portafolio.]</p>
-        </section>
+    <!-- Animación del perrito -->
+    <div class="dog-animation"></div>
 
-        <!-- Sección Contacto -->
-        <section id="contacto" class="section">
-            <h2>Contacto</h2>
-            <p>[Aquí puedes poner un formulario de contacto o tus datos de redes sociales.]</p>
-        </section>
-    </div>
-
-    <!-- Pie de página -->
-    <footer>
-        <p>&copy; 2023 Mi Página Web. Todos los derechos reservados.</p>
-    </footer>
-
+    <script>
+        // Activar la animación de perrito al hacer clic en enlaces del menú
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                const dog = document.querySelector('.dog-animation');
+                dog.style.display = 'block';
+                setTimeout(() => {
+                    dog.style.display = 'none';
+                }, 2000); // Duración de la animación
+            });
+        });
+    </script>
 </body>
 </html>
+
