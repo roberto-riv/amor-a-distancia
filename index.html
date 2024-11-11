@@ -13,6 +13,9 @@
             background-color: #f7f3fc;
             color: #4a4a4a;
             overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         h1 {
             font-size: 2.5em;
@@ -20,17 +23,21 @@
             text-align: center;
             margin-top: 20px;
         }
-        .typing {
+        /* Animación de escritura y borrado para subtítulos */
+        .subtitle {
             font-size: 1.5em;
             color: #695a74;
+            text-align: center;
+            margin-top: 0;
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid #7a6790;
-            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+            animation: typing 3s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
         }
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            0% { width: 0; }
+            50% { width: 100%; }
+            100% { width: 0; }
         }
         @keyframes blink-caret {
             50% { border-color: transparent; }
@@ -42,6 +49,7 @@
             justify-content: center;
             background-color: #d1c4e9;
             padding: 15px;
+            width: 100%;
         }
         nav a {
             color: #4a4a4a;
@@ -103,9 +111,9 @@
     <!-- Animación del perrito que aparece al cargar la página -->
     <div class="dog-animation" id="dog"></div>
 
-    <!-- Título con efecto de escritura -->
+    <!-- Título con subtítulos animados uno por uno -->
     <h1>Un Amor a Distancia</h1>
-    <h2 class="typing">Que nunca se acaba, que siempre espera, que es fuerte, que es fiel...</h2>
+    <h2 class="subtitle" id="subtitle">Que nunca se acaba</h2>
 
     <!-- Menú de navegación -->
     <nav>
@@ -129,6 +137,31 @@
     </section>
 
     <script>
+        // Animación de subtítulos uno por uno
+        const subtitles = [
+            "Que nunca se acaba",
+            "Que siempre espera",
+            "Que es fuerte",
+            "Que es fiel",
+            "Que trasciende la distancia",
+            "Que supera cualquier obstáculo",
+            "Que te hace más fuerte",
+            "Que no conoce fronteras",
+            "Que crece con el tiempo",
+            "Que vale la pena"
+        ];
+        
+        let currentIndex = 0;
+        const subtitleElement = document.getElementById('subtitle');
+
+        function updateSubtitle() {
+            subtitleElement.textContent = subtitles[currentIndex];
+            currentIndex = (currentIndex + 1) % subtitles.length;
+        }
+
+        // Cambia el subtítulo cada 3 segundos
+        setInterval(updateSubtitle, 3000);
+
         // Mostrar animación del perrito al cargar la página
         window.onload = function() {
             const dog = document.getElementById('dog');
@@ -140,5 +173,3 @@
     </script>
 </body>
 </html>
-
-
