@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Un Amor a Distancia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
         /* Estilos de página y colores pastel */
         body {
@@ -23,9 +24,10 @@
             text-align: center;
             margin-top: 20px;
         }
-        /* Animación de escritura y borrado para subtítulos */
+        /* Animación de escritura para subtítulos */
         .subtitle {
-            font-size: 1.5em;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2em;
             color: #695a74;
             text-align: center;
             margin-top: 0;
@@ -36,8 +38,7 @@
         }
         @keyframes typing {
             0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
+            100% { width: 100%; }
         }
         @keyframes blink-caret {
             50% { border-color: transparent; }
@@ -63,17 +64,17 @@
             background-color: #b39ddb;
         }
 
-        /* Separador animado */
+        /* Separador animado continuo */
         .separador {
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #b43ddb, #f3e8ff, #7a6790);
-            background-size: 200% 100%;
-            animation: move 4s linear infinite;
+            height: 10px;
+            background: linear-gradient(90deg, #ff7eb3, #ff758f, #ffcd61, #79d392, #57c7f9, #9d79ff, #ff7eb3);
+            background-size: 300% 100%;
+            animation: smoothMove 6s linear infinite;
         }
-        @keyframes move {
-            from { background-position: 0; }
-            to { background-position: 100%; }
+        @keyframes smoothMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Mensaje de bienvenida estilo póster */
@@ -85,41 +86,13 @@
             text-align: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        /* Animación del perrito */
-        .dog-animation {
-            display: none;
-            position: fixed;
-            bottom: 60px;
-            left: 60px;
-            width: 120px;
-            height: 120px;
-            background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/disp/a6d30376965389.5c7945b0d02b6.gif');
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: run 2s linear infinite;
-            z-index: 1000;
-            will-change: transform;
-        }
-        @keyframes run {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100vw); }
-        }
-
-        /* Mejor contraste para accesibilidad */
-        h1, h2 {
-            color: #4a2c59;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Animación del perrito que aparece al cargar la página -->
-    <div class="dog-animation" id="dog"></div>
-
     <!-- Título con subtítulos animados uno por uno -->
     <h1>Un Amor a Distancia</h1>
-    <h2 class="subtitle" id="subtitle">Que nunca se acaba</h2>
+    <h2 class="subtitle" id="subtitle">Donde el corazón manda</h2>
 
     <!-- Menú de navegación -->
     <nav>
@@ -143,39 +116,32 @@
     </section>
 
     <script>
-        // Animación de subtítulos uno por uno
+        // Frases de esperanza para un amor a distancia
         const subtitles = [
-            "Que nunca se acaba",
-            "Que siempre espera",
-            "Que es fuerte",
-            "Que es fiel",
-            "Que trasciende la distancia",
-            "Que supera cualquier obstáculo",
-            "Que te hace más fuerte",
-            "Que no conoce fronteras",
-            "Que crece con el tiempo",
-            "Que vale la pena"
+            "La distancia nos hace fuertes.",
+            "El amor no entiende de kilómetros.",
+            "Tu corazón está siempre conmigo.",
+            "Cada día es un paso hacia el reencuentro.",
+            "Nuestro amor es más grande que la distancia.",
+            "Esperar por ti vale la pena.",
+            "El tiempo solo nos une más.",
+            "Donde hay amor, hay esperanza.",
+            "Aunque lejos, siempre juntos.",
+            "Un amor verdadero nunca se detiene."
         ];
-        
+
         let currentIndex = 0;
         const subtitleElement = document.getElementById('subtitle');
 
         function updateSubtitle() {
-            subtitleElement.textContent = subtitles[currentIndex];
+            const phrase = subtitles[currentIndex];
+            subtitleElement.style.width = `${phrase.length}ch`; // Ajusta la animación al largo de la frase
+            subtitleElement.textContent = phrase;
             currentIndex = (currentIndex + 1) % subtitles.length;
         }
 
         // Cambia el subtítulo cada 3 segundos
         setInterval(updateSubtitle, 3000);
-
-        // Mostrar animación del perrito al cargar la página
-        window.onload = function() {
-            const dog = document.getElementById('dog');
-            dog.style.display = 'block';
-            setTimeout(() => {
-                dog.style.display = 'none';
-            }, 8000); // La animación dura 8 segundos
-        };
     </script>
 </body>
 </html>
