@@ -24,7 +24,7 @@
             text-align: center;
             margin-top: 20px;
         }
-        /* Animación de escritura y borrado para subtítulos */
+        /* Subtítulos con animación de escritura */
         .subtitle {
             font-family: 'Dancing Script', cursive;
             font-size: 2em;
@@ -34,14 +34,11 @@
             white-space: nowrap;
             overflow: hidden;
             border-right: 3px solid #7a6790;
+            display: inline-block;
+            animation: blink-caret 0.8s step-end infinite;
         }
 
-        @keyframes typing {
-            0% { width: 0; }
-            50% { width: 100%; }
-            100% { width: 0; }
-        }
-
+        /* Parpadeo constante del cursor */
         @keyframes blink-caret {
             50% { border-color: transparent; }
         }
@@ -69,14 +66,14 @@
         /* Separador animado continuo */
         .separador {
             width: 100%;
-            height: 10px;
+            height: 12px;
             background: linear-gradient(90deg, #ff7eb3, #ff758f, #ffcd61, #79d392, #57c7f9, #9d79ff, #ff7eb3);
-            background-size: 400% 200%;
-            animation: smoothMove 10s linear infinite;
+            background-size: 500% 100%; /* Tamaño extendido para continuidad */
+            animation: smoothMove 10s linear infinite; /* Duración más larga */
         }
         @keyframes smoothMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            from { background-position: 0% 50%; }
+            to { background-position: 100% 50%; }
         }
 
         /* Mensaje de bienvenida estilo póster */
