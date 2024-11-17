@@ -88,40 +88,7 @@
             position: relative; /* Para los elementos decorativos */
         }
 
-        /* Animación de los elementos decorativos en los lados */
-        .decoracion-lados {
-            position: absolute;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .decoracion-lados::before, .decoracion-lados::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            width: 100px;
-            height: 100%;
-            background: linear-gradient(to bottom, #ff7eb3, #ff758f);
-            animation: moverLados 6s ease-in-out infinite;
-        }
-
-        .decoracion-lados::before {
-            left: -120px;
-        }
-
-        .decoracion-lados::after {
-            right: -120px;
-        }
-
-        /* Animación de movimiento para los elementos decorativos */
-        @keyframes moverLados {
-            0% { transform: translateY(-30%); }
-            50% { transform: translateY(30%); }
-            100% { transform: translateY(-30%); }
-        }
-
+ 
         /* Botón con enlace al collage */
         .collage-button {
             margin-top: 30px;
