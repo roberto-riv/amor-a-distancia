@@ -24,7 +24,8 @@
             text-align: center;
             margin-top: 20px;
         }
-        /* Subtítulos con animación de escritura */
+
+        /* Subtítulos con animación continua */
         .subtitle {
             font-family: 'Dancing Script', cursive;
             font-size: 2em;
@@ -35,12 +36,40 @@
             overflow: hidden;
             border-right: 3px solid #7a6790;
             display: inline-block;
-            animation: blink-caret 0.8s step-end infinite;
+            animation: blink-caret 0.8s step-end infinite, typewriter 5s steps(30) infinite;
         }
 
         /* Parpadeo constante del cursor */
         @keyframes blink-caret {
             50% { border-color: transparent; }
+        }
+
+        /* Animación de la escritura continua */
+        @keyframes typewriter {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* Animación de calaveras tipo protector de pantallas */
+        @keyframes skullsMove {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        /* Separador animado continuo con fondo de calaveras */
+        .separador {
+            width: 100%;
+            height: 12px;
+            background: url('https://example.com/skull-pattern.png') repeat-x;
+            animation: skullsMove 3s linear infinite;
         }
 
         /* Menú interactivo */
@@ -64,19 +93,6 @@
             transform: scale(1.05); /* Efecto de hover más interactivo */
         }
 
-        /* Separador animado continuo */
-        .separador {
-            width: 100%;
-            height: 12px;
-            background: linear-gradient(90deg, #ff7eb3, #ff758f, #ffcd61, #79d392, #57c7f9, #9d79ff, #ff7eb3);
-            background-size: 500% 100%; /* Tamaño extendido para continuidad */
-            animation: smoothMove 10s linear infinite; /* Duración más larga */
-        }
-        @keyframes smoothMove {
-            from { background-position: 0% 50%; }
-            to { background-position: 100% 50%; }
-        }
-
         /* Mensaje de bienvenida estilo póster */
         .poster {
             background-color: #f0e4f7;
@@ -85,10 +101,17 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative; /* Para los elementos decorativos */
+            position: relative;
+            max-width: 90%;
+            width: 600px;
         }
 
- 
+        .poster p {
+            text-align: justify;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
         /* Botón con enlace al collage */
         .collage-button {
             margin-top: 30px;
@@ -134,9 +157,9 @@
 
     <!-- Menú de navegación -->
     <nav>
-        <a href="#bienvenida">Bienvenida</a>
-        <a href="#subpagina1">Subpágina 1</a>
-        <a href="#entradas">Entradas</a>
+        <a href="#bienvenida" aria-label="Ir a la sección Bienvenida">Bienvenida</a>
+        <a href="#subpagina1" aria-label="Ir a la Subpágina 1">Subpágina 1</a>
+        <a href="#entradas" aria-label="Ir a la sección de Entradas">Entradas</a>
     </nav>
 
     <!-- Separador animado -->
@@ -144,11 +167,10 @@
 
     <!-- Sección de bienvenida tipo póster -->
     <section id="bienvenida" class="poster">
-        <div class="decoracion-lados"></div>
         <h2>De mi para ti</h2>
         <p>
-        ¡Holiwis! Hoy no es un día cualquiera, ¡hoy es tu cumpleaños! Y mi corazón está lleno de emoción porque esta fecha es tan especial para ti como lo es para mí.  </p>
-        <p>Aunque este año estemos lejos, no quería dejarte sin ningún detalle, quiero que sientas cada palabra de esta carta de inicio como un abrazo cálido,  </p>
+        ¡Holiwis! Hoy no es un día cualquiera, ¡hoy es tu cumpleaños! Y mi corazón está lleno de emoción porque esta fecha es tan especial para ti como lo es para mí. </p>
+        <p>Aunque este año estemos lejos, no quería dejarte sin ningún detalle, quiero que sientas cada palabra de esta carta de inicio como un abrazo cálido, </p>
         <p>como si estuviera a tu lado celebrando y diciendo cuánto te amo.
         </p>
         <p>
@@ -199,32 +221,19 @@
         let currentIndex = 0;
         const subtitleElement = document.getElementById('subtitle');
 
-        function typeWriter(text, index, callback) {
-            if (index < text.length) {
-                subtitleElement.textContent = text.substring(0, index + 1);
-                setTimeout(() => typeWriter(text, index + 1, callback), 100);
+        function typeWriter(text, index) {
+            subtitleElement.textContent = text.substring(0, index + 1);
+            if (index < text.length - 1) {
+                setTimeout(() => typeWriter(text, index + 1), 100);
             } else {
-                setTimeout(callback, 1000); // Espera un momento antes de borrar
-            }
-        }
-
-        function deleteWriter(text, index, callback) {
-            if (index >= 0) {
-                subtitleElement.textContent = text.substring(0, index);
-                setTimeout(() => deleteWriter(text, index - 1, callback), 100);
-            } else {
-                setTimeout(callback, 500); // Espera un momento antes de escribir la siguiente frase
+                setTimeout(() => typeWriter(text, 0), 1500); // Continuar escribiendo después de una pausa
             }
         }
 
         function loopSubtitles() {
             const text = subtitles[currentIndex];
-            typeWriter(text, 0, () => {
-                deleteWriter(text, text.length, () => {
-                    currentIndex = (currentIndex + 1) % subtitles.length;
-                    loopSubtitles();
-                });
-            });
+            typeWriter(text, 0);
+            currentIndex = (currentIndex + 1) % subtitles.length;
         }
 
         loopSubtitles(); // Inicia la animación de subtítulos
