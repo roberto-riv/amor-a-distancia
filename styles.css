@@ -1,0 +1,171 @@
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h1, h2, p {
+  text-align: center;
+}
+
+/* Menú lateral */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #f2a6b3;
+  padding-top: 20px;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar nav ul li {
+  padding: 15px;
+  text-align: left;
+}
+
+.sidebar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #e89fbb;
+}
+
+/* Contenido principal */
+.main-content {
+  margin-left: 270px;
+  padding: 20px;
+}
+
+/* Títulos y Subtítulos */
+.header {
+  position: relative;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  color: #ff7db9;
+}
+
+.subtitles p {
+  font-size: 1.5rem;
+  color: #ff8ba7;
+  display: inline-block;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://your-image-url.com');
+  background-size: cover;
+  filter: blur(8px);
+  opacity: 0.4;
+}
+
+.separator {
+  margin-top: 30px;
+  height: 5px;
+  background: linear-gradient(to right, #f2a6b3, #ff7db9, #f2a6b3);
+  animation: gradient-animation 3s infinite;
+}
+
+@keyframes gradient-animation {
+  0% { background: linear-gradient(to right, #f2a6b3, #ff7db9, #f2a6b3); }
+  50% { background: linear-gradient(to right, #ff7db9, #f2a6b3, #ff7db9); }
+  100% { background: linear-gradient(to right, #f2a6b3, #ff7db9, #f2a6b3); }
+}
+
+/* Animación de escribir en subtítulos */
+.subtitles p {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: .15em solid #f2a6b3;
+  animation: typing 3s steps(30) 1s forwards, blinkCaret .75s step-end infinite;
+}
+
+@keyframes typing {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Mensaje de bienvenida con burbujas */
+.message-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f2e0e0;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-container h2 {
+  color: #ff6b81;
+}
+
+.message-container p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.message-container::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 30%, rgba(255, 255, 255, 0) 70%);
+  animation: bubble-animation 5s infinite;
+  transform: translateX(-50%);
+}
+
+@keyframes bubble-animation {
+  0% { top: 10px; left: 50%; }
+  50% { top: 20%; left: 60%; }
+  100% { top: 10px; left: 50%; }
+}
+
+/* Pie de página */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #ff7db9;
+  color: white;
+}
+
+/* Espacio para el gif del perro */
+.dog-gif img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
