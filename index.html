@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Para Mi Amor</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(to right, #FFB6C1, #FFD700);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #fff;
+        }
+
+        h2 {
+            color: #FF69B4;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            color: #fff;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            font-style: italic;
+        }
+
+        .posts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .post {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 48%;
+            transition: transform 0.3s ease;
+        }
+
+        .post:hover {
+            transform: scale(1.05);
+        }
+
+        .post h3 {
+            font-family: 'Pacifico', cursive;
+            color: #FF69B4;
+        }
+
+        .post p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #FFD700;
+        }
+
+        .secret-message {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .show-message-btn {
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .show-message-btn:hover {
+            background-color: #FF1493;
+        }
+
+        /* Estilos para dispositivos móviles */
+        @media(max-width: 768px) {
+            .posts {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .post {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Para Mi Amor</h1>
+        <p>Un regalo especial para ti en este día tan importante.</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Bienvenida, mi amor</h2>
+            <p>Este es un pequeño rincón para ti, donde quiero expresarte todo lo que siento por ti. Cada entrada que agregue será un pequeño testimonio de nuestro amor y de los recuerdos que compartimos.</p>
+
+            <!-- Cuenta regresiva -->
+            <div class="countdown" id="countdown"></div>
+
+            <!-- Botón para revelar mensaje secreto -->
+            <button class="show-message-btn" onclick="showSecretMessage()">¡Revelar mi mensaje secreto para ti!</button>
+            <div class="secret-message" id="secretMessage">
+                <p>Siempre te llevo en mi corazón, y cada día que pasa me siento más afortunado de tenerte. ¡Te amo mucho!</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Entradas</h2>
+            <div class="posts">
+                <!-- Post 1 -->
+                <div class="post">
+                    <h3>El primer beso</h3>
+                    <p>Recuerdo cuando nos dimos nuestro primer beso, ese momento fue mágico. No quería que el tiempo pasara.</p>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="post">
+                    <h3>El día que nos conocimos</h3>
+                    <p>El primer día que nos conocimos parece tan lejano, pero la conexión que sentí fue instantánea. Desde ese momento, supe que seríamos algo especial.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Hecho con mucho amor por <strong>Tu nombre</strong></p>
+        </footer>
+    </div>
+
+    <script>
+        // Función de cuenta regresiva
+        const countDownDate = new Date("Dec 31, 2024 00:00:00").getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerHTML = days + " días hasta el próximo encuentro";
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "¡Es hoy!";
+            }
+        }, 1000);
+
+        // Función para mostrar el mensaje secreto
+        function showSecretMessage() {
+            document.getElementById("secretMessage").style.display = "block";
+        }
+    </script>
+</body>
+</html>
