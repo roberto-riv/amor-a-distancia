@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Blog Personal para Ti</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Bienvenidos a Nuestro Blog</h1>
+    <nav>
+      <a href="#nueva-carta">Nueva Carta</a>
+      <a href="#posts">Ver Cartas</a>
+    </nav>
+  </header>
+
+  <section id="nueva-carta">
+    <h2>Escribir una Nueva Carta</h2>
+    <form id="form-carta">
+      <textarea id="carta-texto" placeholder="Escribe tu carta aquí..." required></textarea>
+      <button type="submit">Enviar Carta</button>
+    </form>
+  </section>
+
+  <section id="posts">
+    <h2>Mis Cartas</h2>
+    <div id="lista-cartas">
+      <!-- Las cartas aparecerán aquí -->
+    </div>
+  </section>
+
+  <footer>
+    <p>Hecho con ❤️ por [Tu Nombre]</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
